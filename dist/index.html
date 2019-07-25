@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QR Code Generator</title>
+  <script src="./js/qrcode.js"></script>
+  <style>
+    .qr_code_img {
+      width: 200px;
+      border: 3px solid red;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    QR Code Generator
+  </h1>
+  <section>
+    <h2>成功パターン</h2>
+    <img src="" id="qrCodeImg" class="qr_code_img">
+    <script>
+      QR_CODE({
+        targetText: '{"number":"1234567"}', // QRコードに変換する文字列
+        imgSelector: '#qrCodeImg' // 出力するimgタグのセレクタ
+      })
+    </script>
+  </section>
+  <section>
+    <h2>失敗パターン 対象テキストが空 デフォルト代替画像</h2>
+    <img src="" id="qrCodeImg2" class="qr_code_img">
+    <script>
+      QR_CODE({
+        targetText: '',
+        imgSelector: '#qrCodeImg2'
+      })
+    </script>
+  </section>
+  <section>
+    <h2>失敗パターン 対象テキストが空 代替画像指定</h2>
+    <img src="" id="qrCodeImg3" class="qr_code_img">
+    <script>
+      QR_CODE({
+        targetText: '',
+        imgSelector: '#qrCodeImg3'
+        // altImg: TODO
+      })
+    </script>
+  </section>
+  <section>
+    <h2>失敗パターン imgタグセレクタ間違い コンソールにエラー表示</h2>
+    <img src="" id="qrCodeImg4" class="qr_code_img">
+    <script>
+      QR_CODE({
+        targetText: 'testtest',
+        imgSelector: '#xxxx'
+      })
+    </script>
+  </section>
+</body>
+</html>
